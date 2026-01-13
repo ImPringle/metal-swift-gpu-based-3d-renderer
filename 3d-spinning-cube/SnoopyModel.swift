@@ -1,3 +1,4 @@
+import MathCore
 struct SnoopyModel {
 
     static let vertices: [Point3D] = [

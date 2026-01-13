@@ -1,0 +1,771 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7579862C2F15A79D00C3A5E5 /* MathCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757986212F15A79D00C3A5E5 /* MathCore.framework */; };
+		757986362F15A79D00C3A5E5 /* MathCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757986212F15A79D00C3A5E5 /* MathCore.framework */; };
+		757986372F15A79D00C3A5E5 /* MathCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 757986212F15A79D00C3A5E5 /* MathCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		757986172F15A27100C3A5E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75CFA4392F0D96CA00C2766B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 75CFA4402F0D96CA00C2766B;
+			remoteInfo = "metal-gpu-renderer";
+		};
+		7579862D2F15A79D00C3A5E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75CFA4392F0D96CA00C2766B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 757986202F15A79D00C3A5E5;
+			remoteInfo = MathCore;
+		};
+		7579862F2F15A79D00C3A5E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75CFA4392F0D96CA00C2766B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 75CFA4402F0D96CA00C2766B;
+			remoteInfo = "metal-gpu-renderer";
+		};
+		757986342F15A79D00C3A5E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75CFA4392F0D96CA00C2766B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 757986202F15A79D00C3A5E5;
+			remoteInfo = MathCore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7579863B2F15A79D00C3A5E5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				757986372F15A79D00C3A5E5 /* MathCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		757986132F15A27100C3A5E5 /* metal-gpu-rendererTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "metal-gpu-rendererTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		757986212F15A79D00C3A5E5 /* MathCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MathCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7579862B2F15A79D00C3A5E5 /* MathCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		75CFA4412F0D96CA00C2766B /* metal-gpu-renderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "metal-gpu-renderer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		757986222F15A79D00C3A5E5 /* MathCore */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MathCore;
+			sourceTree = "<group>";
+		};
+		757986312F15A79D00C3A5E5 /* MathCoreTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MathCoreTests;
+			sourceTree = "<group>";
+		};
+		75CFA4432F0D96CA00C2766B /* 3d-spinning-cube */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "3d-spinning-cube";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		757986102F15A27100C3A5E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7579861E2F15A79D00C3A5E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		757986282F15A79D00C3A5E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7579862C2F15A79D00C3A5E5 /* MathCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75CFA43E2F0D96CA00C2766B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				757986362F15A79D00C3A5E5 /* MathCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		75CFA4382F0D96CA00C2766B = {
+			isa = PBXGroup;
+			children = (
+				75CFA4432F0D96CA00C2766B /* 3d-spinning-cube */,
+				757986222F15A79D00C3A5E5 /* MathCore */,
+				757986312F15A79D00C3A5E5 /* MathCoreTests */,
+				75CFA4422F0D96CA00C2766B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		75CFA4422F0D96CA00C2766B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				75CFA4412F0D96CA00C2766B /* metal-gpu-renderer.app */,
+				757986132F15A27100C3A5E5 /* metal-gpu-rendererTests.xctest */,
+				757986212F15A79D00C3A5E5 /* MathCore.framework */,
+				7579862B2F15A79D00C3A5E5 /* MathCoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7579861C2F15A79D00C3A5E5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		757986122F15A27100C3A5E5 /* metal-gpu-rendererTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 757986192F15A27100C3A5E5 /* Build configuration list for PBXNativeTarget "metal-gpu-rendererTests" */;
+			buildPhases = (
+				7579860F2F15A27100C3A5E5 /* Sources */,
+				757986102F15A27100C3A5E5 /* Frameworks */,
+				757986112F15A27100C3A5E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				757986182F15A27100C3A5E5 /* PBXTargetDependency */,
+			);
+			name = "metal-gpu-rendererTests";
+			packageProductDependencies = (
+			);
+			productName = "metal-gpu-rendererTests";
+			productReference = 757986132F15A27100C3A5E5 /* metal-gpu-rendererTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		757986202F15A79D00C3A5E5 /* MathCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 757986382F15A79D00C3A5E5 /* Build configuration list for PBXNativeTarget "MathCore" */;
+			buildPhases = (
+				7579861C2F15A79D00C3A5E5 /* Headers */,
+				7579861D2F15A79D00C3A5E5 /* Sources */,
+				7579861E2F15A79D00C3A5E5 /* Frameworks */,
+				7579861F2F15A79D00C3A5E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				757986222F15A79D00C3A5E5 /* MathCore */,
+			);
+			name = MathCore;
+			packageProductDependencies = (
+			);
+			productName = MathCore;
+			productReference = 757986212F15A79D00C3A5E5 /* MathCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7579862A2F15A79D00C3A5E5 /* MathCoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7579863C2F15A79D00C3A5E5 /* Build configuration list for PBXNativeTarget "MathCoreTests" */;
+			buildPhases = (
+				757986272F15A79D00C3A5E5 /* Sources */,
+				757986282F15A79D00C3A5E5 /* Frameworks */,
+				757986292F15A79D00C3A5E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7579862E2F15A79D00C3A5E5 /* PBXTargetDependency */,
+				757986302F15A79D00C3A5E5 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				757986312F15A79D00C3A5E5 /* MathCoreTests */,
+			);
+			name = MathCoreTests;
+			packageProductDependencies = (
+			);
+			productName = MathCoreTests;
+			productReference = 7579862B2F15A79D00C3A5E5 /* MathCoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		75CFA4402F0D96CA00C2766B /* metal-gpu-renderer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75CFA44C2F0D96CB00C2766B /* Build configuration list for PBXNativeTarget "metal-gpu-renderer" */;
+			buildPhases = (
+				75CFA43D2F0D96CA00C2766B /* Sources */,
+				75CFA43E2F0D96CA00C2766B /* Frameworks */,
+				75CFA43F2F0D96CA00C2766B /* Resources */,
+				7579863B2F15A79D00C3A5E5 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				757986352F15A79D00C3A5E5 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				75CFA4432F0D96CA00C2766B /* 3d-spinning-cube */,
+			);
+			name = "metal-gpu-renderer";
+			packageProductDependencies = (
+			);
+			productName = "3d-spinning-cube";
+			productReference = 75CFA4412F0D96CA00C2766B /* metal-gpu-renderer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		75CFA4392F0D96CA00C2766B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					757986122F15A27100C3A5E5 = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = 75CFA4402F0D96CA00C2766B;
+					};
+					757986202F15A79D00C3A5E5 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+					7579862A2F15A79D00C3A5E5 = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = 75CFA4402F0D96CA00C2766B;
+					};
+					75CFA4402F0D96CA00C2766B = {
+						CreatedOnToolsVersion = 26.0.1;
+						LastSwiftMigration = 2600;
+					};
+				};
+			};
+			buildConfigurationList = 75CFA43C2F0D96CA00C2766B /* Build configuration list for PBXProject "metal-gpu-renderer" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 75CFA4382F0D96CA00C2766B;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 75CFA4422F0D96CA00C2766B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				75CFA4402F0D96CA00C2766B /* metal-gpu-renderer */,
+				757986122F15A27100C3A5E5 /* metal-gpu-rendererTests */,
+				757986202F15A79D00C3A5E5 /* MathCore */,
+				7579862A2F15A79D00C3A5E5 /* MathCoreTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		757986112F15A27100C3A5E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7579861F2F15A79D00C3A5E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		757986292F15A79D00C3A5E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75CFA43F2F0D96CA00C2766B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7579860F2F15A27100C3A5E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7579861D2F15A79D00C3A5E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		757986272F15A79D00C3A5E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75CFA43D2F0D96CA00C2766B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		757986182F15A27100C3A5E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 75CFA4402F0D96CA00C2766B /* metal-gpu-renderer */;
+			targetProxy = 757986172F15A27100C3A5E5 /* PBXContainerItemProxy */;
+		};
+		7579862E2F15A79D00C3A5E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 757986202F15A79D00C3A5E5 /* MathCore */;
+			targetProxy = 7579862D2F15A79D00C3A5E5 /* PBXContainerItemProxy */;
+		};
+		757986302F15A79D00C3A5E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 75CFA4402F0D96CA00C2766B /* metal-gpu-renderer */;
+			targetProxy = 7579862F2F15A79D00C3A5E5 /* PBXContainerItemProxy */;
+		};
+		757986352F15A79D00C3A5E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 757986202F15A79D00C3A5E5 /* MathCore */;
+			targetProxy = 757986342F15A79D00C3A5E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7579861A2F15A27100C3A5E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4MML36X35X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.metal-gpu-rendererTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metal-gpu-renderer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/metal-gpu-renderer";
+			};
+			name = Debug;
+		};
+		7579861B2F15A27100C3A5E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4MML36X35X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.metal-gpu-rendererTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metal-gpu-renderer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/metal-gpu-renderer";
+			};
+			name = Release;
+		};
+		757986392F15A79D00C3A5E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4MML36X35X;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathCore;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7579863A2F15A79D00C3A5E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4MML36X35X;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathCore;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7579863D2F15A79D00C3A5E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4MML36X35X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metal-gpu-renderer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/metal-gpu-renderer";
+			};
+			name = Debug;
+		};
+		7579863E2F15A79D00C3A5E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4MML36X35X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MathCoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metal-gpu-renderer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/metal-gpu-renderer";
+			};
+			name = Release;
+		};
+		75CFA44A2F0D96CB00C2766B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4MML36X35X;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		75CFA44B2F0D96CB00C2766B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4MML36X35X;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		75CFA44D2F0D96CB00C2766B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4MML36X35X;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-d-spinning-cube";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		75CFA44E2F0D96CB00C2766B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4MML36X35X;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-d-spinning-cube";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		757986192F15A27100C3A5E5 /* Build configuration list for PBXNativeTarget "metal-gpu-rendererTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7579861A2F15A27100C3A5E5 /* Debug */,
+				7579861B2F15A27100C3A5E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		757986382F15A79D00C3A5E5 /* Build configuration list for PBXNativeTarget "MathCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				757986392F15A79D00C3A5E5 /* Debug */,
+				7579863A2F15A79D00C3A5E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7579863C2F15A79D00C3A5E5 /* Build configuration list for PBXNativeTarget "MathCoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7579863D2F15A79D00C3A5E5 /* Debug */,
+				7579863E2F15A79D00C3A5E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75CFA43C2F0D96CA00C2766B /* Build configuration list for PBXProject "metal-gpu-renderer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75CFA44A2F0D96CB00C2766B /* Debug */,
+				75CFA44B2F0D96CB00C2766B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75CFA44C2F0D96CB00C2766B /* Build configuration list for PBXNativeTarget "metal-gpu-renderer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75CFA44D2F0D96CB00C2766B /* Debug */,
+				75CFA44E2F0D96CB00C2766B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 75CFA4392F0D96CA00C2766B /* Project object */;
+}

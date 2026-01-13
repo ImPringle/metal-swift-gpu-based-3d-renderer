@@ -1,6 +1,7 @@
 import Metal
 import MetalKit
 import QuartzCore
+import MathCore
 
 @Observable
 final class Renderer: NSObject, MTKViewDelegate {
@@ -14,6 +15,7 @@ final class Renderer: NSObject, MTKViewDelegate {
     
     // Flags
     private var flipY = true
+    var useQuaternions = false
     
     // Input state
     var moveForward: Bool = false
@@ -39,11 +41,19 @@ final class Renderer: NSObject, MTKViewDelegate {
     
     // Axis angles
     var aX: Float = 0.0
-    var aY: Float = 1.5
+    var aY: Float = Float.pi
     var aZ: Float = 0.0
     
     // Scale
     var scale: Float = 1.0
+    
+    // Default setting orientation facing front snoopy
+    static let facingFront = Quaternion.fromAxisAngle(axis: Point3D(x: 0, y: 1, z: 0), angle: Float.pi)
+    
+    // Orientation (Quaternion specific)
+    var orientation = Quaternion.identity().multiply(q2: facingFront)
+    
+    
     
     // Speeds
     private var speed: Float = 1.5
@@ -90,6 +100,11 @@ final class Renderer: NSObject, MTKViewDelegate {
         let dt = Float(now - lastTime)
         lastTime = now
         
+        let qrx = (rXClockwise ? 1 : 0) - (rXNClockwise ? 1 : 0)
+        let qry = (rYClockwise ? 1 : 0) - (rYNClockwise ? 1 : 0)
+        let qrz = (rZClockwise ? 1 : 0) - (rZNClockwise ? 1 : 0)
+        
+        
         if moveForward {dZ += speed * dt}
         if moveBackward {dZ -= speed * dt}
         if moveRight {dX += speed * dt}
@@ -105,10 +120,29 @@ final class Renderer: NSObject, MTKViewDelegate {
         if scalingUp {scale += scalingSpeed * dt}
         if scalingDown {scale -= scalingSpeed * dt}
         if SpinXZ {aY += rotSpeed * dt}
+        
+        
+        // updating quaternions by its deltas
+        if qrx != 0 {
+            let dq = Quaternion.fromAxisAngle(axis: Point3D(x: 1, y: 0, z: 0), angle: Float(qrx) * rotSpeed * dt)
+            orientation = dq.multiply(q2: orientation)
+        }
+        
+        if qry != 0 {
+            let dq = Quaternion.fromAxisAngle(axis: Point3D(x: 0, y: 1, z: 0), angle: Float(qry) * rotSpeed * dt)
+            orientation = dq.multiply(q2: orientation)
+        }
+        
+        if qrz != 0 {
+            let dq = Quaternion.fromAxisAngle(axis: Point3D(x: 0, y: 0, z: 1), angle: Float(qrz) * rotSpeed * dt)
+            orientation = dq.multiply(q2: orientation)
+        }
+        
     }
 
     private func rebuildLineList() {
-        let projected = projectVertices(SnoopyModel.vertices, aX: aX, aY: aY, aZ: aZ, dX: dX, dY: dY, dZ: dZ, scale: scale, flipY: flipY)
+        let R: Mat3 = orientation.toRotationMatrix()
+        let projected = projectVertices(SnoopyModel.vertices, aX: aX, aY: aY, aZ: aZ, dX: dX, dY: dY, dZ: dZ, rotation: R, scale: scale, flipY: flipY, useQuats: useQuaternions)
 
         lineVerticesNDC.removeAll(keepingCapacity: true)
 

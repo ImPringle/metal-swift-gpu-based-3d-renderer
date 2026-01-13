@@ -1,4 +1,5 @@
 import SwiftUI
+import MathCore
 
 struct HUD: View {
     @Binding var HUDctrl: HUDController
@@ -24,27 +25,31 @@ struct HUD: View {
                 Spacer()
             }
             HStack {
-                Text("Rx: \(HUDctrl.renderer?.aX ?? 0)")
-                    .foregroundStyle(
-                        HUDctrl.renderer?.rXClockwise ?? false ? .green :
-                            HUDctrl.renderer?.rXNClockwise ?? false ? .red : .white)
-                    .font(.system(size: fontSize))
-
-                Text("Ry: \(HUDctrl.renderer?.aY ?? 0)")
-                    .foregroundStyle(
-                        HUDctrl.renderer?.rYClockwise ?? false || HUDctrl.renderer?.SpinXZ ?? false ? .green : 
-                            HUDctrl.renderer?.rYNClockwise ?? false ? .red : .white)
-                    .font(.system(size: fontSize))
-
-                Text("Rz: \(HUDctrl.renderer?.aZ ?? 0)")
-                    .foregroundStyle(
-                        HUDctrl.renderer?.rZClockwise ?? false ? .green :
-                            HUDctrl.renderer?.rZNClockwise ?? false ? .red : .white)
-                    .font(.system(size: fontSize))
+                VStack (alignment: .leading) {
+                    Text("Rotating around X: \((radToDeg(wrapRadians(HUDctrl.renderer?.aX ?? 0))))")
+                        .foregroundStyle(
+                            HUDctrl.renderer?.rXClockwise ?? false ? .green :
+                                HUDctrl.renderer?.rXNClockwise ?? false ? .red : .white)
+                        .font(.system(size: fontSize))
+                    
+                    Text("Rotating around Y: \(radToDeg(wrapRadians(HUDctrl.renderer?.aY ?? 0)))")
+                        .foregroundStyle(
+                            HUDctrl.renderer?.rYClockwise ?? false || HUDctrl.renderer?.SpinXZ ?? false ? .green : 
+                                HUDctrl.renderer?.rYNClockwise ?? false ? .red : .white)
+                        .font(.system(size: fontSize))
+                    
+                    Text("Rotating around Z: \(radToDeg(wrapRadians(HUDctrl.renderer?.aZ ?? 0)))")
+                        .foregroundStyle(
+                            HUDctrl.renderer?.rZClockwise ?? false ? .green :
+                                HUDctrl.renderer?.rZNClockwise ?? false ? .red : .white)
+                        .font(.system(size: fontSize))
+                    
+                }
                 Spacer()
             }
+            Spacer()
             HStack {
-                Text("Scale: \(HUDctrl.renderer?.scale ?? 0)")
+                Text("Scale: x\(HUDctrl.renderer?.scale ?? 0)")
                     .foregroundStyle(
                         HUDctrl.renderer?.scalingUp ?? false ? .green :
                             HUDctrl.renderer?.scalingDown ?? false ? .red : .white)
@@ -65,8 +70,17 @@ struct HUD: View {
                     .font(.system(size: fontSize))
 
                 Spacer()
+                Text(HUDctrl.renderer?.useQuaternions ?? false ? "QUATERNION ROTATION" : "EULER ANGLES")
+                    .foregroundStyle(.white)
+                    .font(.system(size: fontSize))
             }
-            Spacer()
+//            Spacer()
+//            HStack {
+//                Spacer()
+//                Text(HUDctrl.renderer?.useQuaternions ?? false ? "QUATERNION ROTATION" : "EULER ANGLES")
+//                    .foregroundStyle(.white)
+//                    .font(.system(size: fontSize))
+//            }
         }
         .padding()
     }

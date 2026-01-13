@@ -93,6 +93,8 @@ final class InputMTKView: MTKView {
         case 15:
             renderer?.SpinXZ.toggle()
             break
+        case 46:
+            renderer?.useQuaternions.toggle()
         case 53:
             NSApp.terminate(nil)
             break
