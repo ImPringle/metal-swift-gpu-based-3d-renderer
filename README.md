@@ -1,156 +1,133 @@
-# Metal Wireframe Renderer (Swift)
+# Metal Swift GPU-Based 3D Renderer
 
-A low-level 3D wireframe renderer built from scratch using **Swift + Metal**, focused on understanding the fundamentals of 3D graphics by manually implementing the rendering pipeline.
+A low-level **3D wireframe renderer** built from scratch using **Swift + Metal**, focused on understanding the fundamentals of 3D graphics by manually implementing the rendering pipeline.
 
-This project renders a complex wireframe model (Snoopy) by projecting 3D vertices into 2D screen space and drawing line segments using Metal — without SceneKit, Model I/O, or high-level abstractions.
-
----
-
-## Features
-
-- Manual 3D math pipeline
-  - Scaling
-  - Translation (X / Y / Z)
-  - Rotation around X, Y, Z axes
-  - Perspective projection (`x / z`, `y / z`)
-- CPU-side vertex transformation (no matrix libraries)
-- Wireframe rendering using Metal line primitives
-- Real-time keyboard input
-- HUD overlay displaying:
-  - Translation values
-  - Rotation angles
-  - Scale
-  - Vertex and edge counts
-- Time-based animation loop (delta time)
-- Native macOS app using SwiftUI + MetalKit
+This project renders a complex wireframe model (Snoopy) by projecting 3D vertices into 2D screen space and drawing line segments using Metal — **without SceneKit, Model I/O, or high-level abstractions**.
 
 ---
 
-## Project Goal
+## 🚀 Features
 
-This project is intentionally **low-level and educational**.
+### 🧠 Core 3D Engine
+- Manual 3D graphics pipeline (no external math libraries)
+- CPU-side vertex transformations
+- Perspective projection
+- Line-based rendering using Metal
 
-The goal is to understand how 3D rendering works under the hood by:
-- Rebuilding the graphics pipeline manually
-- Connecting CPU-side math with GPU rendering
-- Avoiding high-level graphics frameworks
-- Preparing for more advanced graphics and engine development
+### 📐 MathCore Framework (Custom)
+This project includes a **custom math framework called `MathCore`**, built from scratch to deeply understand and control all mathematical operations involved in 3D rendering.
 
----
+**MathCore provides:**
+- Vector math (`Point2D`, `Point3D`)
+- Linear algebra utilities
+- Rotation matrices
+- **Quaternion math**
+- Quaternion normalization and composition
+- **Quaternion → Rotation Matrix conversion**
 
-## Architecture Overview
+All transformations (translation, scaling, rotation) are computed using MathCore before being sent to the GPU.
 
-SwiftUI
-├─ ContentView
-│ ├─ MetalView (MTKView wrapper)
-│ └─ HUD (overlay)
-│
-├─ Renderer (MTKViewDelegate)
-│ ├─ Input handling
-│ ├─ Time-based updates
-│ ├─ Vertex projection
-│ └─ Line list rebuild
-│
-├─ Math.swift
-│ ├─ Point2D / Point3D
-│ ├─ Translation
-│ ├─ Rotation functions
-│ └─ Perspective projection
-│
-├─ SnoopyModel.swift
-│ ├─ Vertices
-│ └─ Edge indices
-│
-└─ Shaders.metal
-├─ Vertex shader
-└─ Fragment shader
-
+> The goal of MathCore is educational: no hidden abstractions, just raw math used by real graphics engines.
 
 ---
 
-## Rendering Pipeline
+## 🔁 Rotation Modes
 
-1. Original 3D vertices
-2. Optional Y-axis flip
-3. Scaling
-4. Rotation (Y → X → Z)
-5. Translation
-6. Perspective projection
-7. Edge expansion into line segments
-8. Upload to GPU
-9. Draw using Metal line primitives
+This renderer supports **two rotation systems**, switchable at runtime:
 
-All transformations are explicit and implemented in code.
+### Euler Angles
+- Classic X / Y / Z rotations
+- Easy to visualize and debug
+- Susceptible to gimbal lock
+
+### Quaternions
+- Smooth, continuous rotations
+- Avoid gimbal lock
+- Uses quaternion algebra internally
+- Converted to rotation matrices via MathCore for rendering
+
+🔑 **Press `M` to toggle between Euler and Quaternion rotation modes at runtime**
 
 ---
 
-## Controls
+## 🖱 Controls
 
 ### Movement
-| Key | Action |
-|---|---|
+| Keys | Action |
+|------|--------|
 | W / S | Move forward / backward (Z) |
 | A / D | Move left / right (X) |
 | ↑ / ↓ | Move up / down (Y) |
 
 ### Rotation
-| Key | Action |
-|---|---|
+| Keys | Action |
+|------|--------|
 | I / K | Rotate X axis |
 | J / L | Rotate Y axis |
 | U / O | Rotate Z axis |
-| R | Toggle continuous Y rotation |
+| **M** | Toggle Euler ↔ Quaternion rotation |
 
 ### Scale
-| Key | Action |
-|---|---|
+| Keys | Action |
+|------|--------|
 | ← / → | Scale up / down |
 
 ### System
-| Key | Action |
-|---|---|
+| Keys | Action |
+|------|--------|
 | Esc | Quit application |
 
 ---
 
-## Tech Stack
+## 🧩 Architecture Overview
+SwiftUI
+├─ ContentView
+│ ├─ MetalView (MTKView)
+│ └─ Renderer (MTKViewDelegate)
+│ ├─ Input handling
+│ ├─ MathCore
+│ │ ├─ Vector math
+│ │ ├─ Linear algebra
+│ │ ├─ Euler rotations
+│ │ ├─ Quaternions
+│ │ └─ Quaternion → Matrix conversion
+│ ├─ Vertex projection
+│ ├─ Line list generation
+│ └─ Shaders.metal
+│ ├─ Vertex shader
+│ └─ Fragment shader
 
-- Language: Swift
-- Graphics API: Metal
-- UI: SwiftUI + MetalKit
-- Platform: macOS
-- Shaders: Metal Shading Language
 
 ---
 
-## What This Project Does NOT Use
+## 🛠 Tech Stack
+
+- **Language:** Swift
+- **Graphics API:** Metal
+- **UI:** SwiftUI + MetalKit
+- **Shaders:** Metal Shading Language
+- **Math:** Custom `MathCore` framework
+- **Platform:** macOS
+
+---
+
+## ⚠️ What This Project Does *Not* Use
 
 - SceneKit
 - Model I/O
-- SIMD matrix helpers
+- simd / GLM / third-party math libraries
 - Camera abstractions
-- External 3D loaders
 
-Everything is implemented manually for learning purposes.
+Everything — including the math — is implemented manually to understand how real-time 3D engines work under the hood.
 
----
-
-## Future Improvements
-
-- Matrix-based transformations
-- Camera system
-- Depth clipping
-- Triangle rasterization
-- GPU-side transforms
-- Back-face culling
-
----
-
-## Credits
-**badanon1** for the snoopy 3d model I used in this experiment https://sketchfab.com/3d-models/snoopy-72116d2e288f4c45a11f323d76142a6c
-
-**Tsoding** and **Pikuma** for graphics fundamental content on youtube
-
-## License
+## 📜 License
 
 MIT License
+
+---
+
+## ❤️ Credits
+
+- **badanon1** — Snoopy 3D model (Sketchfab)
+- Tsoding & Pikuma — graphics programming inspiration
+- Dr. Michael Gipser - Sent me Quaternions and 3D Transformations slides.
