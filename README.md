@@ -79,27 +79,6 @@ This renderer supports **two rotation systems**, switchable at runtime:
 
 ---
 
-## 🧩 Architecture Overview
-SwiftUI
-├─ ContentView
-│ ├─ MetalView (MTKView)
-│ └─ Renderer (MTKViewDelegate)
-│ ├─ Input handling
-│ ├─ MathCore
-│ │ ├─ Vector math
-│ │ ├─ Linear algebra
-│ │ ├─ Euler rotations
-│ │ ├─ Quaternions
-│ │ └─ Quaternion → Matrix conversion
-│ ├─ Vertex projection
-│ ├─ Line list generation
-│ └─ Shaders.metal
-│ ├─ Vertex shader
-│ └─ Fragment shader
-
-
----
-
 ## 🛠 Tech Stack
 
 - **Language:** Swift
