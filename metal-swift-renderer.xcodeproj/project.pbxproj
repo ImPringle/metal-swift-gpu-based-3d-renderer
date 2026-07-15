@@ -58,10 +58,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		757986132F15A27100C3A5E5 /* metal-gpu-rendererTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "metal-gpu-rendererTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		757986132F15A27100C3A5E5 /* metal-swift-rendererTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "metal-swift-rendererTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		757986212F15A79D00C3A5E5 /* MathCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MathCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7579862B2F15A79D00C3A5E5 /* MathCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		75CFA4412F0D96CA00C2766B /* metal-gpu-renderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "metal-gpu-renderer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		75CFA4412F0D96CA00C2766B /* metal-swift-renderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "metal-swift-renderer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +75,9 @@
 			path = MathCoreTests;
 			sourceTree = "<group>";
 		};
-		75CFA4432F0D96CA00C2766B /* 3d-spinning-cube */ = {
+		75CFA4432F0D96CA00C2766B /* metal-swift-renderer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "3d-spinning-cube";
+			path = "metal-swift-renderer";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -119,7 +119,7 @@
 		75CFA4382F0D96CA00C2766B = {
 			isa = PBXGroup;
 			children = (
-				75CFA4432F0D96CA00C2766B /* 3d-spinning-cube */,
+				75CFA4432F0D96CA00C2766B /* metal-swift-renderer */,
 				757986222F15A79D00C3A5E5 /* MathCore */,
 				757986312F15A79D00C3A5E5 /* MathCoreTests */,
 				75CFA4422F0D96CA00C2766B /* Products */,
@@ -129,8 +129,8 @@
 		75CFA4422F0D96CA00C2766B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				75CFA4412F0D96CA00C2766B /* metal-gpu-renderer.app */,
-				757986132F15A27100C3A5E5 /* metal-gpu-rendererTests.xctest */,
+				75CFA4412F0D96CA00C2766B /* metal-swift-renderer.app */,
+				757986132F15A27100C3A5E5 /* metal-swift-rendererTests.xctest */,
 				757986212F15A79D00C3A5E5 /* MathCore.framework */,
 				7579862B2F15A79D00C3A5E5 /* MathCoreTests.xctest */,
 			);
@@ -150,9 +150,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		757986122F15A27100C3A5E5 /* metal-gpu-rendererTests */ = {
+		757986122F15A27100C3A5E5 /* metal-swift-rendererTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 757986192F15A27100C3A5E5 /* Build configuration list for PBXNativeTarget "metal-gpu-rendererTests" */;
+			buildConfigurationList = 757986192F15A27100C3A5E5 /* Build configuration list for PBXNativeTarget "metal-swift-rendererTests" */;
 			buildPhases = (
 				7579860F2F15A27100C3A5E5 /* Sources */,
 				757986102F15A27100C3A5E5 /* Frameworks */,
@@ -163,11 +163,11 @@
 			dependencies = (
 				757986182F15A27100C3A5E5 /* PBXTargetDependency */,
 			);
-			name = "metal-gpu-rendererTests";
+			name = "metal-swift-rendererTests";
 			packageProductDependencies = (
 			);
 			productName = "metal-gpu-rendererTests";
-			productReference = 757986132F15A27100C3A5E5 /* metal-gpu-rendererTests.xctest */;
+			productReference = 757986132F15A27100C3A5E5 /* metal-swift-rendererTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		757986202F15A79D00C3A5E5 /* MathCore */ = {
@@ -217,9 +217,9 @@
 			productReference = 7579862B2F15A79D00C3A5E5 /* MathCoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		75CFA4402F0D96CA00C2766B /* metal-gpu-renderer */ = {
+		75CFA4402F0D96CA00C2766B /* metal-swift-renderer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75CFA44C2F0D96CB00C2766B /* Build configuration list for PBXNativeTarget "metal-gpu-renderer" */;
+			buildConfigurationList = 75CFA44C2F0D96CB00C2766B /* Build configuration list for PBXNativeTarget "metal-swift-renderer" */;
 			buildPhases = (
 				75CFA43D2F0D96CA00C2766B /* Sources */,
 				75CFA43E2F0D96CA00C2766B /* Frameworks */,
@@ -232,13 +232,13 @@
 				757986352F15A79D00C3A5E5 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				75CFA4432F0D96CA00C2766B /* 3d-spinning-cube */,
+				75CFA4432F0D96CA00C2766B /* metal-swift-renderer */,
 			);
-			name = "metal-gpu-renderer";
+			name = "metal-swift-renderer";
 			packageProductDependencies = (
 			);
 			productName = "3d-spinning-cube";
-			productReference = 75CFA4412F0D96CA00C2766B /* metal-gpu-renderer.app */;
+			productReference = 75CFA4412F0D96CA00C2766B /* metal-swift-renderer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -268,7 +268,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 75CFA43C2F0D96CA00C2766B /* Build configuration list for PBXProject "metal-gpu-renderer" */;
+			buildConfigurationList = 75CFA43C2F0D96CA00C2766B /* Build configuration list for PBXProject "metal-swift-renderer" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -282,8 +282,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				75CFA4402F0D96CA00C2766B /* metal-gpu-renderer */,
-				757986122F15A27100C3A5E5 /* metal-gpu-rendererTests */,
+				75CFA4402F0D96CA00C2766B /* metal-swift-renderer */,
+				757986122F15A27100C3A5E5 /* metal-swift-rendererTests */,
 				757986202F15A79D00C3A5E5 /* MathCore */,
 				7579862A2F15A79D00C3A5E5 /* MathCoreTests */,
 			);
@@ -355,7 +355,7 @@
 /* Begin PBXTargetDependency section */
 		757986182F15A27100C3A5E5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 75CFA4402F0D96CA00C2766B /* metal-gpu-renderer */;
+			target = 75CFA4402F0D96CA00C2766B /* metal-swift-renderer */;
 			targetProxy = 757986172F15A27100C3A5E5 /* PBXContainerItemProxy */;
 		};
 		7579862E2F15A79D00C3A5E5 /* PBXTargetDependency */ = {
@@ -365,7 +365,7 @@
 		};
 		757986302F15A79D00C3A5E5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 75CFA4402F0D96CA00C2766B /* metal-gpu-renderer */;
+			target = 75CFA4402F0D96CA00C2766B /* metal-swift-renderer */;
 			targetProxy = 7579862F2F15A79D00C3A5E5 /* PBXContainerItemProxy */;
 		};
 		757986352F15A79D00C3A5E5 /* PBXTargetDependency */ = {
@@ -392,7 +392,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metal-gpu-renderer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/metal-gpu-renderer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metal-swift-renderer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/metal-swift-renderer";
 			};
 			name = Debug;
 		};
@@ -412,7 +412,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metal-gpu-renderer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/metal-gpu-renderer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metal-swift-renderer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/metal-swift-renderer";
 			};
 			name = Release;
 		};
@@ -507,7 +507,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metal-gpu-renderer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/metal-gpu-renderer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metal-swift-renderer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/metal-swift-renderer";
 			};
 			name = Debug;
 		};
@@ -526,7 +526,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metal-gpu-renderer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/metal-gpu-renderer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/metal-swift-renderer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/metal-swift-renderer";
 			};
 			name = Release;
 		};
@@ -720,7 +720,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		757986192F15A27100C3A5E5 /* Build configuration list for PBXNativeTarget "metal-gpu-rendererTests" */ = {
+		757986192F15A27100C3A5E5 /* Build configuration list for PBXNativeTarget "metal-swift-rendererTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7579861A2F15A27100C3A5E5 /* Debug */,
@@ -747,7 +747,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75CFA43C2F0D96CA00C2766B /* Build configuration list for PBXProject "metal-gpu-renderer" */ = {
+		75CFA43C2F0D96CA00C2766B /* Build configuration list for PBXProject "metal-swift-renderer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75CFA44A2F0D96CB00C2766B /* Debug */,
@@ -756,7 +756,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75CFA44C2F0D96CB00C2766B /* Build configuration list for PBXNativeTarget "metal-gpu-renderer" */ = {
+		75CFA44C2F0D96CB00C2766B /* Build configuration list for PBXNativeTarget "metal-swift-renderer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75CFA44D2F0D96CB00C2766B /* Debug */,

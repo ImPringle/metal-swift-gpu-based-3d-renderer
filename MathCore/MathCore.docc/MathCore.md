@@ -1,6 +1,6 @@
 # ``MathCore``
 
-<!--@START_MENU_TOKEN@-->Summary<!--@END_MENU_TOKEN@-->
+Math framework that contains useful functionalities that helps computer graphics.
 
 ## Overview
 
@@ -9,5 +9,7 @@
 ## Topics
 
 ### <!--@START_MENU_TOKEN@-->Group<!--@END_MENU_TOKEN@-->
+
+by Mario Pringle
 
 - <!--@START_MENU_TOKEN@-->``Symbol``<!--@END_MENU_TOKEN@-->
