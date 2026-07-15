@@ -65,9 +65,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		757986222F15A79D00C3A5E5 /* MathCore */ = {
+		757986222F15A79D00C3A5E5 /* CGMath */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MathCore;
+			path = CGMath;
 			sourceTree = "<group>";
 		};
 		757986312F15A79D00C3A5E5 /* MathCoreTests */ = {
@@ -120,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				75CFA4432F0D96CA00C2766B /* metal-swift-renderer */,
-				757986222F15A79D00C3A5E5 /* MathCore */,
+				757986222F15A79D00C3A5E5 /* CGMath */,
 				757986312F15A79D00C3A5E5 /* MathCoreTests */,
 				75CFA4422F0D96CA00C2766B /* Products */,
 			);
@@ -184,7 +184,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				757986222F15A79D00C3A5E5 /* MathCore */,
+				757986222F15A79D00C3A5E5 /* CGMath */,
 			);
 			name = MathCore;
 			packageProductDependencies = (
