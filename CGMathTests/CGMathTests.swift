@@ -1,6 +1,6 @@
 //
-//  MathCoreTests.swift
-//  MathCoreTests
+//  CGMathTests.swift
+//  CGMathTests
 //
 //  Created by Mario Zuniga on 12/01/26.
 //

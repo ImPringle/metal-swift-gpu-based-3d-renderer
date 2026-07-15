@@ -70,9 +70,9 @@
 			path = CGMath;
 			sourceTree = "<group>";
 		};
-		757986312F15A79D00C3A5E5 /* MathCoreTests */ = {
+		757986312F15A79D00C3A5E5 /* CGMathTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MathCoreTests;
+			path = CGMathTests;
 			sourceTree = "<group>";
 		};
 		75CFA4432F0D96CA00C2766B /* metal-swift-renderer */ = {
@@ -121,7 +121,7 @@
 			children = (
 				75CFA4432F0D96CA00C2766B /* metal-swift-renderer */,
 				757986222F15A79D00C3A5E5 /* CGMath */,
-				757986312F15A79D00C3A5E5 /* MathCoreTests */,
+				757986312F15A79D00C3A5E5 /* CGMathTests */,
 				75CFA4422F0D96CA00C2766B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -208,7 +208,7 @@
 				757986302F15A79D00C3A5E5 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				757986312F15A79D00C3A5E5 /* MathCoreTests */,
+				757986312F15A79D00C3A5E5 /* CGMathTests */,
 			);
 			name = MathCoreTests;
 			packageProductDependencies = (
