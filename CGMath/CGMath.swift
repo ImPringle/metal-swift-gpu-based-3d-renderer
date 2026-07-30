@@ -1,4 +1,17 @@
 import Foundation
+import simd
+
+public struct CGVec3d {
+    public var x: Float
+    public var y: Float
+    public var z: Float
+
+    public init(x: Float, y: Float, z: Float) {
+        self.x = x
+        self.y = y
+        self.z = z
+    }
+}
 
 public func radToDeg(_ radians: Float) -> Float {
     return radians * 180 / .pi
@@ -165,3 +178,18 @@ public func projectVertices(_ vertices: [Point3D], aX: Float, aY: Float, aZ: Flo
     }
     return out
 }
+
+// refactoring using simd
+
+public func createMVP(bounds: CGRect) -> simd_float4x4 {
+    let modelMatrix = simd_float4x4.identity
+    
+    let viewMatrix = simd_float4x4.translation(x: 0, y: -2, z: -10.0)
+    
+    let aspect = Float(bounds.size.width / bounds.size.height)
+    let fov = 65.0 * (Float.pi / 180.0)
+    let projectionMatrix = simd_float4x4.perspective(fovRadians: fov, aspectRatio: aspect, near: 0.1, far: 100.0)
+    
+    return projectionMatrix * viewMatrix * modelMatrix
+}
+

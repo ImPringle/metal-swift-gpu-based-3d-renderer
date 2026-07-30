@@ -1,4 +1,4 @@
-import MathCore
+import CGMath
 struct SnoopyModel {
 
     static let vertices: [Point3D] = [

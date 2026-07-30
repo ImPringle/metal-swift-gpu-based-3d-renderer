@@ -6,7 +6,7 @@
 //
 import XCTest
 import Testing
-@testable import MathCore
+@testable import CGMath
 
 struct MathCoreTests {
 

@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "75CFA4402F0D96CA00C2766B"
-               BuildableName = "metal-swift-renderer.app"
-               BlueprintName = "metal-swift-renderer"
+               BuildableName = "metal-swift-renderer-macos.app"
+               BlueprintName = "metal-swift-renderer-macos"
                ReferencedContainer = "container:metal-swift-renderer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -52,6 +52,17 @@
                ReferencedContainer = "container:metal-swift-renderer.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "756E731630088C6B00C33E2F"
+               BuildableName = "CGUtilitiesTests.xctest"
+               BlueprintName = "CGUtilitiesTests"
+               ReferencedContainer = "container:metal-swift-renderer.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -69,8 +80,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75CFA4402F0D96CA00C2766B"
-            BuildableName = "metal-swift-renderer.app"
-            BlueprintName = "metal-swift-renderer"
+            BuildableName = "metal-swift-renderer-macos.app"
+            BlueprintName = "metal-swift-renderer-macos"
             ReferencedContainer = "container:metal-swift-renderer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -86,8 +97,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75CFA4402F0D96CA00C2766B"
-            BuildableName = "metal-swift-renderer.app"
-            BlueprintName = "metal-swift-renderer"
+            BuildableName = "metal-swift-renderer-macos.app"
+            BlueprintName = "metal-swift-renderer-macos"
             ReferencedContainer = "container:metal-swift-renderer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
