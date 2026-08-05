@@ -13,6 +13,9 @@
 		7579862C2F15A79D00C3A5E5 /* CGMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757986212F15A79D00C3A5E5 /* CGMath.framework */; };
 		757986362F15A79D00C3A5E5 /* CGMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757986212F15A79D00C3A5E5 /* CGMath.framework */; platformFilters = (macos, ); };
 		757986372F15A79D00C3A5E5 /* CGMath.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 757986212F15A79D00C3A5E5 /* CGMath.framework */; platformFilters = (macos, ); settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA11AA11AA11AA11AA11AA11 /* CGMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757986212F15A79D00C3A5E5 /* CGMath.framework */; };
+		BB22BB22BB22BB22BB22BB22 /* CGUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756E730D30088C6B00C33E2F /* CGUtilities.framework */; };
+		DD44DD44DD44DD44DD44DD44 /* CGUtilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 756E730D30088C6B00C33E2F /* CGUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,20 @@
 			remoteGlobalIDString = 757986202F15A79D00C3A5E5;
 			remoteInfo = MathCore;
 		};
+		AC22AC22AC22AC22AC22AC22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75CFA4392F0D96CA00C2766B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 757986202F15A79D00C3A5E5;
+			remoteInfo = MathCore;
+		};
+		AE44AE44AE44AE44AE44AE44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75CFA4392F0D96CA00C2766B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 756E730C30088C6B00C33E2F;
+			remoteInfo = CGUtilities;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,6 +93,17 @@
 			files = (
 				757986372F15A79D00C3A5E5 /* CGMath.framework in Embed Frameworks */,
 				756E732330088C6B00C33E2F /* CGUtilities.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE55EE55EE55EE55EE55EE55 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DD44DD44DD44DD44DD44DD44 /* CGUtilities.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +178,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA11AA11AA11AA11AA11AA11 /* CGMath.framework in Frameworks */,
+				BB22BB22BB22BB22BB22BB22 /* CGUtilities.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,10 +286,13 @@
 				755E24863010A1CF00361DF2 /* Sources */,
 				755E24873010A1CF00361DF2 /* Frameworks */,
 				755E24883010A1CF00361DF2 /* Resources */,
+				EE55EE55EE55EE55EE55EE55 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AB11AB11AB11AB11AB11AB11 /* PBXTargetDependency */,
+				AD33AD33AD33AD33AD33AD33 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				755E248B3010A1CF00361DF2 /* metal-swift-renderer-ios */,
@@ -401,6 +434,8 @@
 				756E732130088C6B00C33E2F /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				756E730E30088C6B00C33E2F /* CGUtilities */,
+				757986222F15A79D00C3A5E5 /* CGMath */,
 				75CFA4432F0D96CA00C2766B /* metal-swift-renderer-macos */,
 			);
 			name = "metal-swift-renderer-macos";
@@ -577,6 +612,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		AB11AB11AB11AB11AB11AB11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 757986202F15A79D00C3A5E5 /* CGMath */;
+			targetProxy = AC22AC22AC22AC22AC22AC22 /* PBXContainerItemProxy */;
+		};
+		AD33AD33AD33AD33AD33AD33 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 756E730C30088C6B00C33E2F /* CGUtilities */;
+			targetProxy = AE44AE44AE44AE44AE44AE44 /* PBXContainerItemProxy */;
+		};
 		756E731A30088C6B00C33E2F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 756E730C30088C6B00C33E2F /* CGUtilities */;
@@ -712,12 +757,15 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -750,12 +798,15 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -866,16 +917,18 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CGMath;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = macosx;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -908,16 +961,18 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CGMath;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = macosx;
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};

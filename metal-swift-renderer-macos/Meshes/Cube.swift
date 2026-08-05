@@ -12,7 +12,7 @@ import simd
 
 struct Cube: Mesh {
     func getModelMatrix() -> simd_float4x4 {
-        return modelMatrix
+        return simd_float4x4.translation(x: at.x, y: at.y, z: at.z)
     }
     let device: MTLDevice
     let vertices: [CGVertex]
@@ -22,36 +22,41 @@ struct Cube: Mesh {
     let indexCount: Int
     let primitiveType: MTLPrimitiveType = .triangle
     var modelMatrix: simd_float4x4 = simd_float4x4(1)
+    var at: SIMD3<Float> = SIMD3()
+    var color: SIMD4<Float> = SIMD4()
     
     init(device: MTLDevice,
          color: SIMD4<Float> = SIMD4<Float>(0.0, 0.8, 0.8, 1.0),
          at: SIMD3<Float> = SIMD3<Float>(0,0,0)
     ) {
         self.device = device
+        
+        self.at = at
+        self.color = color
 
         // Cube spanning (0,0,0) front-bottom-left to (1,1,1) back-top-right.
         // z = 0 is the front face, z = 1 is the back face.
-        let corners: [SIMD4<Float>] = [
-            // front face
+        let points: [SIMD4<Float>] = [
+            // back face
             SIMD4<Float>(0, 0, 0, 1),
             SIMD4<Float>(0, 1, 0, 1),
             SIMD4<Float>(1, 1, 0, 1),
             SIMD4<Float>(1, 0, 0, 1),
-            // back face
+            // front face
             SIMD4<Float>(0, 0, 1, 1),
             SIMD4<Float>(0, 1, 1, 1),
             SIMD4<Float>(1, 1, 1, 1),
             SIMD4<Float>(1, 0, 1, 1),
             // left face
-            SIMD4<Float>(0, 0, 1, 1),
-            SIMD4<Float>(0, 1, 1, 1),
-            SIMD4<Float>(0, 1, 0, 1),
             SIMD4<Float>(0, 0, 0, 1),
+            SIMD4<Float>(0, 1, 0, 1),
+            SIMD4<Float>(0, 1, 1, 1),
+            SIMD4<Float>(0, 0, 1, 1),
             // right face
-            SIMD4<Float>(1, 0, 0, 1),
-            SIMD4<Float>(1, 1, 0, 1),
-            SIMD4<Float>(1, 1, 1, 1),
             SIMD4<Float>(1, 0, 1, 1),
+            SIMD4<Float>(1, 1, 1, 1),
+            SIMD4<Float>(1, 1, 0, 1),
+            SIMD4<Float>(1, 0, 0, 1),
             // top face
             SIMD4<Float>(0, 1, 0, 1),
             SIMD4<Float>(0, 1, 1, 1),
@@ -61,27 +66,66 @@ struct Cube: Mesh {
             SIMD4<Float>(0, 0, 0, 1),
             SIMD4<Float>(0, 0, 1, 1),
             SIMD4<Float>(1, 0, 1, 1),
-            SIMD4<Float>(1, 0, 0, 1),
+            SIMD4<Float>(1, 0, 0, 1)
         ]
         
+        let normals: [SIMD3<Float>] = [
+            // back face
+            SIMD3<Float>(0, 0, 1),
+            SIMD3<Float>(0, 0, 1),
+            SIMD3<Float>(0, 0, 1),
+            SIMD3<Float>(0, 0, 1),
+            // front face
+            SIMD3<Float>(0, 0, -1),
+            SIMD3<Float>(0, 0, -1),
+            SIMD3<Float>(0, 0, -1),
+            SIMD3<Float>(0, 0, -1),
+            // left face
+            SIMD3<Float>(-1, 0, 0),
+            SIMD3<Float>(-1, 0, 0),
+            SIMD3<Float>(-1, 0, 0),
+            SIMD3<Float>(-1, 0, 0),
+            // right face
+            SIMD3<Float>(1, 0, 0),
+            SIMD3<Float>(1, 0, 0),
+            SIMD3<Float>(1, 0, 0),
+            SIMD3<Float>(1, 0, 0),
+            // top face
+            SIMD3<Float>(0, 1, 0),
+            SIMD3<Float>(0, 1, 0),
+            SIMD3<Float>(0, 1, 0),
+            SIMD3<Float>(0, 1, 0),
+            // bottom face
+            SIMD3<Float>(0, -1, 0),
+            SIMD3<Float>(0, -1, 0),
+            SIMD3<Float>(0, -1, 0),
+            SIMD3<Float>(0, -1, 0)
+        ]
+        
+        var verts: [CGVertex] = []
+        for (idx, point) in points.enumerated() {
+            verts.append(CGVertex(position: point, normal: normals[idx], color: color))
+        }
 
-        let verts = corners.map { CGVertex(position: $0, color: color) }
-
-        // Two triangles per face, wound counter-clockwise when viewed from
-        // outside the cube.
         let idx: [UInt16] = [
-            // Front (z = 0)
-            0, 2, 1,  0, 3, 2,
-            // Back (z = 1)
-            4, 5, 6,  4, 6, 7,
-            // Left (x = 0)
-            4, 3, 0,  4, 7, 3,
-            // Right (x = 1)
-            1, 2, 6,  1, 6, 5,
-            // Bottom (y = 0)
-            0, 1, 5,  0, 5, 4,
-            // Top (y = 1)
-            3, 7, 6,  3, 6, 2,
+            // front face
+            0, 1, 2,
+            0, 2, 3,
+            // back face
+            4, 5, 6,
+            4, 6, 7,
+            // left face
+            8, 9, 10,
+            8, 10, 11,
+            // right face
+            12, 13, 14,
+            12, 14, 15,
+            // top face
+            16, 17, 18,
+            16, 18, 19,
+            // bottom face
+            20, 21, 22,
+            20, 22, 23
         ]
 
         vertices = verts

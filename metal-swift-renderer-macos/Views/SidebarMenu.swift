@@ -48,6 +48,17 @@ struct SidebarMenu: View {
             CustomSlider(range: $worldController.fovRange, value: $worldController.fov, title: "Fov")
             CustomSlider(range: $worldController.znearRange, value: $worldController.znear, title: "Z-Near")
             CustomSlider(range: $worldController.zfarRange, value: $worldController.zfar, title: "Z-Far")
+            HStack {
+                Text("Light Settings")
+                Spacer()
+            }
+            .padding(.vertical, 5)
+            VStack {
+                CustomSlider(range: $worldController.lightPositionRange, value: $worldController.lightPosition.x, title: "X-Light Position")
+                CustomSlider(range: $worldController.lightPositionRange, value: $worldController.lightPosition.y, title: "Y-Light Position")
+                CustomSlider(range: $worldController.lightPositionRange, value: $worldController.lightPosition.z, title: "Z-Light Position")
+
+            }
             Spacer()
         }
         .padding()

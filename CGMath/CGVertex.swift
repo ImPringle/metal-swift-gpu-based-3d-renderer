@@ -10,7 +10,7 @@ public struct CGVertex {
     public var normal: SIMD3<Float>
     public var color: SIMD4<Float>
 
-    public init(position: SIMD4<Float>, color: SIMD4<Float>, normal: SIMD3<Float>) {
+    public init(position: SIMD4<Float>, normal: SIMD3<Float>, color: SIMD4<Float>) {
         self.position = position
         self.normal = normal
         self.color = color

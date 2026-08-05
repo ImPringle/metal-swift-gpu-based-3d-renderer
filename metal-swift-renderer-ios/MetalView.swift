@@ -26,6 +26,7 @@ struct MetalView: UIViewRepresentable {
         
         mtkView.device = device
         mtkView.autoResizeDrawable = true
+        mtkView.depthStencilPixelFormat = .depth32Float
         
         if let renderer = Renderer(mtkView, worldController, windowController) {
             context.coordinator.renderer = renderer

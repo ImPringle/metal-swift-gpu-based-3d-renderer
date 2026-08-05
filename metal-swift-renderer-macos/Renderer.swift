@@ -8,6 +8,7 @@ final class Renderer: NSObject, MTKViewDelegate {
     private let device: MTLDevice
     private let commandQueue: MTLCommandQueue
     private let pipelineState: MTLRenderPipelineState
+    private let depthStencilState: MTLDepthStencilState
     private let mtkView: MTKView
     
     private var worldController: WorldController
@@ -17,17 +18,6 @@ final class Renderer: NSObject, MTKViewDelegate {
     
     private var lastTime: Double = CACurrentMediaTime()
     private var lineVerticesNDC: [SIMD2<Float>] = []
-
-    // Static floor grid on the xz plane.
-//    private let grid: Grid
-    
-    // Default setting orientation facing front snoopy
-    static let facingFront = Quaternion.fromAxisAngle(axis: Point3D(x: 0, y: 1, z: 0), angle: Float.pi)
-    
-    // Orientation (Quaternion specific)
-    var orientation = Quaternion.identity().multiply(q2: facingFront)
-    
-    
     
     // Speeds
     private var speed: Float = 1.5
@@ -41,11 +31,11 @@ final class Renderer: NSObject, MTKViewDelegate {
         self.worldController = worldController
         self.windowController = windowController
         
-        let newCube = Cube(device: device)
-        let newGrid = Grid(device: device)
+        let cubes = worldController.generateRandomCubes(device: device, 10000, 50)
+//        let newGrid = Grid(device: device)
         let newScene = RenderScene(worldController: worldController)
-        newScene.meshes.append(newGrid)
-        newScene.meshes.append(newCube)
+//        newScene.meshes.append(newGrid)
+        newScene.meshes = cubes
         
         self.scene = newScene
 
@@ -57,15 +47,20 @@ final class Renderer: NSObject, MTKViewDelegate {
         pipeline_descriptor.vertexFunction = vs
         pipeline_descriptor.fragmentFunction = fs
         pipeline_descriptor.colorAttachments[0].pixelFormat = mtkView.colorPixelFormat
+        pipeline_descriptor.depthAttachmentPixelFormat = mtkView.depthStencilPixelFormat
 
         let vertex_descriptor = MTLVertexDescriptor()
         vertex_descriptor.attributes[0].format = .float4
         vertex_descriptor.attributes[0].offset = 0
         vertex_descriptor.attributes[0].bufferIndex = 0
         
-        vertex_descriptor.attributes[1].format = .float4
-        vertex_descriptor.attributes[1].offset = MemoryLayout<SIMD4<Float>>.stride
+        vertex_descriptor.attributes[1].format = .float3
+        vertex_descriptor.attributes[1].offset = MemoryLayout<CGVertex>.offset(of: \.normal)!
         vertex_descriptor.attributes[1].bufferIndex = 0
+        
+        vertex_descriptor.attributes[2].format = .float4
+        vertex_descriptor.attributes[2].offset = MemoryLayout<CGVertex>.offset(of: \.color)!
+        vertex_descriptor.attributes[2].bufferIndex = 0
         
         vertex_descriptor.layouts[0].stride = MemoryLayout<CGVertex>.stride
         vertex_descriptor.layouts[0].stepFunction = .perVertex
@@ -77,6 +72,15 @@ final class Renderer: NSObject, MTKViewDelegate {
             print("[ERROR] Pipeline creation failed:", error)
             return nil
         }
+
+        let depthDescriptor = MTLDepthStencilDescriptor()
+        depthDescriptor.depthCompareFunction = .less
+        depthDescriptor.isDepthWriteEnabled = true
+        guard let depthState = device.makeDepthStencilState(descriptor: depthDescriptor) else {
+            print("[ERROR] Depth stencil state creation failed")
+            return nil
+        }
+        self.depthStencilState = depthState
 
         super.init()
     }
@@ -106,6 +110,7 @@ final class Renderer: NSObject, MTKViewDelegate {
         else { return }
 
         enc.setRenderPipelineState(pipelineState)
+        enc.setDepthStencilState(depthStencilState)
 
         let viewMatrix = scene.GetViewMatrix()
         let aspect = worldController.aspect
@@ -117,11 +122,27 @@ final class Renderer: NSObject, MTKViewDelegate {
         )
         
         for mesh in scene.meshes {
-            let finalMVP = projectionMatrix * viewMatrix * mesh.modelMatrix
-            var uniforms = CGUniforms(mvp: finalMVP)
+            let modelMatrix = mesh.getModelMatrix()
+            let finalMVP = projectionMatrix * viewMatrix * modelMatrix
+
+            let upperLeft = simd_float3x3(
+                simd_make_float3(modelMatrix.columns.0),
+                simd_make_float3(modelMatrix.columns.1),
+                simd_make_float3(modelMatrix.columns.2)
+            )
+            let normalMatrix = upperLeft.inverse.transpose
+
+            var uniforms = CGUniforms(mvp: finalMVP, lightPosition: worldController.lightPosition, lightColor: worldController.lightColor, modelMatrix: modelMatrix, normalMatrix: normalMatrix)
+            
+            
             
             enc.setVertexBuffer(mesh.vertexBuffer, offset: 0, index: 0)
+            
+            
+            
             enc.setVertexBytes(&uniforms, length: MemoryLayout<CGUniforms>.stride, index: 1)
+            
+            enc.setFragmentBytes(&uniforms, length: MemoryLayout<CGUniforms>.stride, index: 1)
             
             enc.drawIndexedPrimitives(
                 type: mesh.primitiveType,
