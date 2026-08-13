@@ -128,5 +128,4 @@ MIT License
 ## Credits
 
 - Snoopy 3D model reference data: [badanon1](https://sketchfab.com) (Sketchfab)
-- Graphics programming references: Tsoding, Pikuma
-- Quaternion and 3D transformation materials: Dr. Michael Gipser
+- Graphics programming references: Pikuma
