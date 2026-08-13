@@ -9,19 +9,13 @@ struct VertexIn {
 
 struct VertexOut {
     float4 position [[position]];
-//    float3 worldPosition;
     float3 currentPosition;
     float3 normal;
     float4 color;
 };
 
 struct Uniforms {
-//    float4x4 model;
-//    float4x4 view;
-//    float4x4 projection;
-    
     float4x4 mvp;
-//    float3 cameraPosition;
     float3 lightPosition;
     float4 lightColor;
     float4x4 modelMatrix;
@@ -40,7 +34,6 @@ vertex VertexOut vertex_main(VertexIn in [[stage_in]],
 
 fragment float4 fragment_main(VertexOut in [[stage_in]],
                               constant Uniforms& uniforms [[buffer(1)]]) {
-    
     float3 normal = normalize(in.normal);
     float3 lightDirection = normalize(uniforms.lightPosition - in.currentPosition);
 

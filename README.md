@@ -1,112 +1,132 @@
 # Metal Swift GPU-Based 3D Renderer
 
-A low-level **3D wireframe renderer** built from scratch using **Swift + Metal**, focused on understanding the fundamentals of 3D graphics by manually implementing the rendering pipeline.
+A from-scratch 3D graphics renderer written in Swift and Metal. The project is educational in focus: it implements core real-time rendering concepts directly—meshes, transforms, projection, depth testing, and lighting—without relying on SceneKit, RealityKit, or Model I/O.
 
-This project renders a complex wireframe model (Snoopy) by projecting 3D vertices into 2D screen space and drawing line segments using Metal — **without SceneKit, Model I/O, or high-level abstractions**.
+## Overview
 
----
+The macOS application hosts a MetalKit view inside a SwiftUI shell. Each frame, the renderer builds model-view-projection (MVP) matrices, uploads per-draw uniforms, and issues indexed triangle draws for meshes in the scene. Lighting is evaluated in the fragment shader using per-vertex normals and a configurable point light.
 
-## 🚀 Features
+Shared math and data types live in the `CGMath` framework. Asset and utility code lives in `CGUtilities`. An iOS target exists with a device-adaptive SwiftUI shell; the macOS target is currently the primary rendering path.
 
-### 🧠 Core 3D Engine
-- Manual 3D graphics pipeline (no external math libraries)
-- CPU-side vertex transformations
-- Perspective projection
-- Line-based rendering using Metal
+## Features
 
-### 📐 MathCore Framework (Custom)
-This project includes a **custom math framework called `MathCore`**, built from scratch to deeply understand and control all mathematical operations involved in 3D rendering.
+- GPU-side vertex transformation and fragment lighting via Metal Shading Language
+- Indexed triangle mesh rendering with depth buffering
+- Perspective projection with configurable FOV, near plane, and far plane
+- Ambient and diffuse lighting driven by light position and color uniforms
+- Procedural mesh generation (cubes, grid)
+- Scene composed of thousands of independently colored and positioned cubes
+- SwiftUI sidebar for live camera and light parameter editing
+- Custom math utilities: vectors, Euler rotations, quaternions, and `simd` matrix helpers
+- Dual platform targets: macOS and iOS
 
-**MathCore provides:**
-- Vector math (`Point2D`, `Point3D`)
-- Linear algebra utilities
-- Rotation matrices
-- **Quaternion math**
-- Quaternion normalization and composition
-- **Quaternion → Rotation Matrix conversion**
+## Architecture
 
-All transformations (translation, scaling, rotation) are computed using MathCore before being sent to the GPU.
+```
+metal-swift-renderer.xcodeproj
+├── metal-swift-renderer-macos   # Primary Metal + SwiftUI application
+├── metal-swift-renderer-ios     # iOS shell (menus / controllers)
+├── CGMath                       # Graphics math, vertices, uniforms
+├── CGUtilities                  # Shared utilities (OBJ loader stub)
+├── CGMathTests
+└── CGUtilitiesTests
+```
 
-> The goal of MathCore is educational: no hidden abstractions, just raw math used by real graphics engines.
+### Rendering pipeline (macOS)
 
----
+1. `MainApp` creates shared controllers and presents `ContentView`.
+2. `MetalView` (`NSViewRepresentable`) creates an `MTKView`, depth attachment, and `Renderer`.
+3. `Renderer` (`MTKViewDelegate`) owns the command queue, render pipeline, and depth-stencil state.
+4. Each draw call:
+   - Builds the view matrix from camera position
+   - Builds the projection matrix from FOV / aspect / clip planes
+   - For each `Mesh`, computes MVP and a normal matrix
+   - Binds vertex/index buffers and `CGUniforms`
+   - Draws indexed primitives
 
-## 🔁 Rotation Modes
+### Key types
 
-This renderer supports **two rotation systems**, switchable at runtime:
+| Type | Role |
+|------|------|
+| `Renderer` | Frame loop, Metal pipeline, draw submission |
+| `RenderScene` | Mesh list and view matrix |
+| `Mesh` | Protocol for vertex/index buffers and model transform |
+| `Cube` / `Grid` | Concrete mesh implementations |
+| `WorldController` | Camera, projection, and light parameters (Observable) |
+| `CGVertex` | Position, normal, color layout for Metal attributes |
+| `CGUniforms` | MVP, model, normal matrix, and light data for shaders |
+| `Quaternion` | Axis-angle construction, composition, and rotation matrices |
 
-### Euler Angles
-- Classic X / Y / Z rotations
-- Easy to visualize and debug
-- Susceptible to gimbal lock
+### Shaders
 
-### Quaternions
-- Smooth, continuous rotations
-- Avoid gimbal lock
-- Uses quaternion algebra internally
-- Converted to rotation matrices via MathCore for rendering
+Located under `metal-swift-renderer-macos/Shaders/`:
 
-🔑 **Press `M` to toggle between Euler and Quaternion rotation modes at runtime**
+- `ParticleRender.metal` — vertex/fragment pair (`vertex_main` / `fragment_main`) with ambient + diffuse lighting
+- `SimulationCompute.metal` — compute kernel stub for future GPU simulation work
 
----
+### Frameworks
 
-## 🖱 Controls
+**CGMath**
 
-### Movement
-| Keys | Action |
-|------|--------|
-| W / S | Move forward / backward (Z) |
-| A / D | Move left / right (X) |
-| ↑ / ↓ | Move up / down (Y) |
+- `Point2D` / `Point3D` and basic transforms (scale, translate, rotate)
+- Quaternion algebra and quaternion-to-matrix conversion
+- `simd_float4x4` helpers (identity, translation, perspective)
+- `CGVertex` and `CGUniforms` shared between CPU and GPU
 
-### Rotation
-| Keys | Action |
-|------|--------|
-| I / K | Rotate X axis |
-| J / L | Rotate Y axis |
-| U / O | Rotate Z axis |
-| **M** | Toggle Euler ↔ Quaternion rotation |
+**CGUtilities**
 
-### Scale
-| Keys | Action |
-|------|--------|
-| ← / → | Scale up / down |
+- Placeholder `OBJLoader` for future mesh import from Wavefront OBJ files
 
-### System
-| Keys | Action |
-|------|--------|
-| Esc | Quit application |
+## Controls and UI
 
----
+The macOS app uses a `NavigationSplitView` with a sidebar (`SidebarMenu`) and a full-bleed Metal viewport.
 
-## 🛠 Tech Stack
+### Camera
 
-- **Language:** Swift
-- **Graphics API:** Metal
-- **UI:** SwiftUI + MetalKit
-- **Shaders:** Metal Shading Language
-- **Math:** Custom `MathCore` framework
-- **Platform:** macOS
+- Position: X / Y / Z text fields
+- Field of view slider
+- Near and far plane sliders
 
----
+### Lighting
 
-## ⚠️ What This Project Does *Not* Use
+- Light position X / Y / Z sliders
+- Light color via world controller state (shader uniform)
 
-- SceneKit
-- Model I/O
-- simd / GLM / third-party math libraries
-- Camera abstractions
+Default camera starts near `(0, 10, -20)` looking toward the origin-centered cube field.
 
-Everything — including the math — is implemented manually to understand how real-time 3D engines work under the hood.
+## Requirements
 
-## 📜 License
+- macOS (primary) or iOS
+- Xcode with Metal and SwiftUI support
+- A Metal-capable Apple GPU
+
+Deployment targets in the Xcode project are currently set to macOS / iOS 26.0. Adjust as needed for your local SDK.
+
+## Getting started
+
+1. Clone the repository.
+2. Open `metal-swift-renderer.xcodeproj` in Xcode.
+3. Select the `metal-swift-renderer-macos` scheme.
+4. Build and run (Cmd-R).
+
+The scene initializes with a large set of randomly colored cubes distributed in space. Use the sidebar to adjust camera and light parameters while the Metal view updates in real time.
+
+## Project status
+
+Active development. Current work includes expanding GPU compute simulation (`SimulationCompute.metal`), particle rendering paths, and mesh import via `CGUtilities`. Legacy wireframe / CPU-projection paths and the bundled Snoopy vertex data remain in the tree from earlier iterations but are not the primary draw path.
+
+## What this project intentionally avoids
+
+- SceneKit / RealityKit scene graphs
+- Model I/O for mesh loading (custom loader planned)
+- Third-party math libraries (math is either handwritten or thin `simd` wrappers)
+
+## License
 
 MIT License
 
----
+## Credits
 
-## ❤️ Credits
-
-- **badanon1** — Snoopy 3D model (Sketchfab)
-- Tsoding & Pikuma — graphics programming inspiration
-- Dr. Michael Gipser - Sent me Quaternions and 3D Transformations slides.
+- Snoopy 3D model reference data: [badanon1](https://sketchfab.com) (Sketchfab)
+- Graphics programming references: Tsoding, Pikuma
+- Quaternion and 3D transformation materials: Dr. Michael Gipser
